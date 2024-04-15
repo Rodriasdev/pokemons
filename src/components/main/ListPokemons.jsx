@@ -1,15 +1,7 @@
-import { useEffect,useState } from "react"
+import { useState } from "react"
 export const ListPokemons = () => {
     const [pokemons, pokemonsState] = useState([])
 
-    useEffect(() => {
-        (async () => {
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
-            const data = await response.json()
-            pokemonsState(data.results)
-        })()
-
-    },[])
 
     const removePokemon = (e) => {
    
@@ -23,8 +15,14 @@ export const ListPokemons = () => {
 
     }
 
+    const ListarPokemons = async () => {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
+        const data = await response.json()
+        pokemonsState(data.results)
+    }
     return(
         <div className="container text-center border border-4 mt-3 rounded bg-dark">
+            <button onClick={ListarPokemons} className="btn btn-outline-success mt-1 text-end">Listar</button>
             <div className="row mt-4 text-white">
                 { 
                     pokemons.map((pokemon) => (
