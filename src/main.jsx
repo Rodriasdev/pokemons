@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Games } from './pages/Games'
+import { Pokemons } from './pages/Pokemons'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Games />
+    <Pokemons />
   </React.StrictMode>,
 )
